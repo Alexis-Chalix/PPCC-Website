@@ -1,0 +1,25 @@
+.search {
+    margin-top: 7em;
+}
+
+
+
+#images-container {
+    width: 70%;
+    margin-left: 15%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+#images-container img {
+    width: 100px;
+    height: 100px;
+}
+
+#images-container h5 {
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
