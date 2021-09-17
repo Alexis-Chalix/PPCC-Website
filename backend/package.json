@@ -1,0 +1,23 @@
+{
+  "name": "api-ppcc",
+  "version": "1.0.0",
+  "description": "Backend API for twitch.tv/pushpushcoincoin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexis-Chalix/PPCC-Website.git"
+  },
+  "author": "Alexis. : https://github.com/Alexis-Chalix",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alexis-Chalix/PPCC-Website/issues"
+  },
+  "homepage": "https://github.com/Alexis-Chalix/PPCC-Website#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
