@@ -1,44 +1,48 @@
-function createImagesDiv() {
-    const images_container = document.getElementById("images-container");
-    
-    try {
-        let request = new XMLHttpRequest();
-        request.open("GET", "http://localhost:8080/coins");
-        request.send();
-        request.onload = () => {
-            if (request.status === 200) {
-                for (const element of JSON.parse(request.response)) {
-                    let image_div = document.createElement("div");
-                    image_div.classList.add("image");
-                    image_div.id = element.slice(0,-4)
+const images_list = []
 
-                    let image = document.createElement("img");
-                    image.src = `../../backend/image_generator/final_images/${element}`
-                    image.alt = element.slice(0,-4)
-                    
-                    let name = document.createElement("h5");
-                    name.innerText = element.slice(0,-4);
-                    
-                    image_div.appendChild(image);
-                    image_div.appendChild(name)
-                    
-                    images_container.appendChild(image_div);
-                }
-            } else {
-                console.log(`error ${request.status} ${request.statusText}`)
+async function createImagesDiv() {
+    const images_container = document.getElementById("images-container");
+
+    await fetch('http://localhost:8080/coins')
+        .then(response => {
+            return response.json();
+        })
+        .then(elements => {
+            for (const element of elements) {
+                let image_div = document.createElement("div");
+                image_div.classList.add("image");
+                image_div.id = element.slice(0,-4)
+
+                let image = document.createElement("img");
+                image.src = `../../backend/image_generator/final_images/${element}`
+                image.alt = element.slice(0,-4)
+                
+                let name = document.createElement("h5");
+                name.innerText = element.slice(0,-4);
+                
+                image_div.appendChild(image);
+                image_div.appendChild(name)
+                
+                images_container.appendChild(image_div);
+
+                images_list.push(image_div)
             }
-        }
-    } catch(e) {
-        console.log(e)
-    }
+        })
 }
 
 function searchCoin() {
-    value = document.getElementById("searchBar");
-    console.log(searchBar.value)
+    value = document.getElementById("searchBar").value
+    const matches = images_list.filter(s => s.id.includes(value));
+
+    for (const image of images_list) {
+        image.classList.remove("hide")
+        if (!matches.includes(image)) {
+            image.classList.add("hide")
+        }
+    }
 }
 
-window.onload = function() {
-    createImagesDiv()
-    searchCoin()
+window.onload = async function() {
+    await createImagesDiv()
+    console.log(images_list)
 }

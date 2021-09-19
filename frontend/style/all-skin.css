@@ -20,6 +20,10 @@
     gap: 30px;
 }
 
+#images-container .hide {
+    display: none;
+}
+
 #images-container img {
     width: 100px;
     height: 100px;
