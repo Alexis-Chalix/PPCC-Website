@@ -17,7 +17,6 @@ def mask_circle_transparent(pil_img, blur_radius, offset=0):
 
 def main():
     print(f"Processing {len(os.listdir('coins'))} images...")
-    filenames = open("filenames.txt", "w")
     numberOfErrors = 0
 
     for filename in os.listdir("coins"):
@@ -35,14 +34,10 @@ def main():
 
                 img_res.save(f"final_images/{filename}")
                 os.remove(f"coins/{filename}")
-                filenames.write(f"{filename}\n")
                 print(f"Successfully processed {filename}")
             except:
                 print(f"Error while processing {filename}")
                 numberOfErrors += 1
-
-    print(f"Finished with {numberOfErrors} errors !")
-    filenames.close()
     return
 
 

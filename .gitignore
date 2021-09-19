@@ -1,2 +1,8 @@
 /backend/package-lock.json
 /backend/node_modules
+/backend/image_generator/final_images
+/backend/image_generator/coins
+/backend/image_generator/sourcecode/final_images/
+/backend/image_generator/sourcecode/coins
+/backend/image_generator/sourcecode/sourcecoins
+/backend/cert

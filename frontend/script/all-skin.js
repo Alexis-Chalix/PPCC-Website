@@ -14,7 +14,7 @@ async function createImagesDiv() {
                 image_div.id = element.slice(0,-4)
 
                 let image = document.createElement("img");
-                image.src = `../../backend/image_generator/final_images/${element}`
+                image.src = `../backend/image_generator/final_images/${element}`
                 image.alt = element.slice(0,-4)
                 
                 let name = document.createElement("h5");
@@ -27,6 +27,9 @@ async function createImagesDiv() {
 
                 images_list.push(image_div)
             }
+        })
+        .catch(error => {
+            console.log(error)
         })
 }
 
@@ -44,5 +47,4 @@ function searchCoin() {
 
 window.onload = async function() {
     await createImagesDiv()
-    console.log(images_list)
 }
