@@ -1,25 +1,43 @@
 .search {
-    margin-top: 7em;
+    width: 25%;
+    margin: 7em auto 4em auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
-
+.search label {
+    font-weight: bold;
+    font-size: 1.5em;
+}
 
 #images-container {
     width: 70%;
     margin-left: 15%;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    justify-content: flex-start;
     gap: 30px;
 }
 
 #images-container img {
     width: 100px;
     height: 100px;
+    
+    display: block;
+    margin: 0 auto;
+
+    transition: all .2s ease-in-out;
+}
+
+#images-container img:hover {
+    transform: scale(1.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 #images-container h5 {
     margin-top: 10px;
+    font-size: 100%;
     font-weight: bold;
     text-align: center;
 }
